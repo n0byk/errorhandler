@@ -1,7 +1,7 @@
 
 
-func ShowError(w http.ResponseWriter, number string) {
-	errortpl, err := ioutil.ReadFile("public/templates/errors/" + number + ".html") //template folder
+func ShowError(w http.ResponseWriter, name string) {
+	errortpl, err := ioutil.ReadFile("public/templates/errors/" + name + ".html") //template folder
 	if err != nil {
 		fmt.Print(err)
 	}

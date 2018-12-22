@@ -1,0 +1,30 @@
+
+
+func ShowError(w http.ResponseWriter, number string) {
+	errortpl, err := ioutil.ReadFile("public/templates/errors/" + number + ".html") //template folder
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	switch number {
+	case "404":
+		w.WriteHeader(http.StatusNotFound)
+		w.Write([]byte(errortpl))
+	case "500":
+		w.WriteHeader(StatusInternalServerError)
+		w.Write([]byte(errortpl))
+	case "502":
+		w.WriteHeader(StatusBadGateway )
+		w.Write([]byte(errortpl))
+    
+    //any errors
+   	case "502":
+		w.WriteHeader(StatusBadGateway )
+		w.Write([]byte(errortpl)) 
+    
+    
+	}
+}
+
+
+USE :   ShowError(w,"404")
